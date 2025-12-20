@@ -1,0 +1,112 @@
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.5.2
+npm info using node@v24.5.0
+npm verbose title npm install
+npm verbose argv "install" "--loglevel" "verbose"
+npm verbose logfile logs-max:10 dir:C:\Users\cocra\AppData\Local\npm-cache\_logs\2025-12-20T17_20_07_818Z-
+npm verbose logfile C:\Users\cocra\AppData\Local\npm-cache\_logs\2025-12-20T17_20_07_818Z-debug-0.log
+npm http cache https://registry.npmjs.org/@auth%2fcore 14ms (cache hit)
+npm http cache https://registry.npmjs.org/@simplewebauthn%2fbrowser 7ms (cache hit)
+npm http cache https://registry.npmjs.org/@simplewebauthn%2fserver 7ms (cache hit)
+npm http cache https://registry.npmjs.org/nodemailer 7ms (cache hit)
+npm http cache https://registry.npmjs.org/@aws-sdk%2fclient-s3 14ms (cache hit)
+npm http cache https://registry.npmjs.org/@aws-sdk%2fs3-request-presigner 20ms (cache hit)
+npm http cache https://registry.npmjs.org/@hookform%2fresolvers 7ms (cache hit)
+npm http cache https://registry.npmjs.org/react-hook-form 17ms (cache hit)
+npm http cache https://registry.npmjs.org/react 20ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-accordion 12ms (cache hit)
+npm http cache https://registry.npmjs.org/@types%2freact 10ms (cache hit)
+npm http cache https://registry.npmjs.org/@types%2freact-dom 8ms (cache hit)
+npm http cache https://registry.npmjs.org/react-dom 23ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-alert-dialog 10ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-aspect-ratio 8ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-avatar 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-checkbox 5ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-collapsible 7ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-context-menu 9ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-dialog 8ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-dropdown-menu 9ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-hover-card 22ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-label 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-menubar 7ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-navigation-menu 8ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-popover 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-progress 5ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-radio-group 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-scroll-area 8ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-select 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-separator 5ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-slider 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-slot 7ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-switch 7ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-tabs 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-toast 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-toggle 9ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-toggle-group 6ms (cache hit)
+npm http cache https://registry.npmjs.org/@radix-ui%2freact-tooltip 17ms (cache hit)
+npm http cache https://registry.npmjs.org/autoprefixer 8ms (cache hit)
+npm http cache https://registry.npmjs.org/postcss 7ms (cache hit)
+npm http cache https://registry.npmjs.org/bcryptjs 5ms (cache hit)
+npm http cache https://registry.npmjs.org/class-variance-authority 5ms (cache hit)
+npm http cache https://registry.npmjs.org/clsx 5ms (cache hit)
+npm http cache https://registry.npmjs.org/cmdk 5ms (cache hit)
+npm http cache https://registry.npmjs.org/date-fns 11ms (cache hit)
+npm http cache https://registry.npmjs.org/embla-carousel-react 20ms (cache hit)
+npm http cache https://registry.npmjs.org/fs 11ms (cache hit)
+npm http cache https://registry.npmjs.org/input-otp 6ms (cache hit)
+npm http cache https://registry.npmjs.org/jsonwebtoken 6ms (cache hit)
+npm http cache https://registry.npmjs.org/lucide-react 9ms (cache hit)
+npm http cache https://registry.npmjs.org/mongoose 13ms (cache hit)
+npm http cache https://registry.npmjs.org/next 57ms (cache hit)
+npm http cache https://registry.npmjs.org/@opentelemetry%2fapi 7ms (cache hit)
+npm http cache https://registry.npmjs.org/@playwright%2ftest 18ms (cache hit)
+npm http cache https://registry.npmjs.org/babel-plugin-react-compiler 8ms (cache hit)
+npm http cache https://registry.npmjs.org/sass 6ms (cache hit)
+npm http cache https://registry.npmjs.org/next-auth 11ms (cache hit)
+npm http cache https://registry.npmjs.org/next-themes 4ms (cache hit)
+npm http cache https://registry.npmjs.org/react-day-picker 7ms (cache hit)
+npm http cache https://registry.npmjs.org/react-resizable-panels 6ms (cache hit)
+npm http cache https://registry.npmjs.org/recharts 8ms (cache hit)
+npm http cache https://registry.npmjs.org/sonner 6ms (cache hit)
+npm http cache https://registry.npmjs.org/tailwind-merge 8ms (cache hit)
+npm http cache https://registry.npmjs.org/tailwindcss-animate 5ms (cache hit)
+npm http cache https://registry.npmjs.org/tailwindcss 23ms (cache hit)
+npm http cache https://registry.npmjs.org/vaul 6ms (cache hit)
+npm http cache https://registry.npmjs.org/react 17ms (cache hit)
+npm verbose stack Error: unable to resolve dependency tree
+npm verbose stack     at #failPeerConflict (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1388:25)
+npm verbose stack     at #loadPeerSet (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1354:33)
+npm verbose stack     at async #buildDepStep (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:917:11)
+npm verbose stack     at async Arborist.buildIdealTree (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:182:7)
+npm verbose stack     at async Promise.all (index 1)
+npm verbose stack     at async Arborist.reify (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\reify.js:126:5)
+npm verbose stack     at async Install.exec (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\lib\commands\install.js:150:5)
+npm verbose stack     at async Npm.exec (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\lib\npm.js:208:9)
+npm verbose stack     at async module.exports (C:\Users\cocra\AppData\Roaming\npm\node_modules\npm\lib\cli\entry.js:67:5)
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: intex@0.1.0
+npm error Found: react@19.2.3
+npm error node_modules/react
+npm error   react@"^19" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer react@"^16.8 || ^17.0 || ^18.0" from vaul@0.9.9
+npm error node_modules/vaul
+npm error   vaul@"^0.9.6" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error C:\Users\cocra\AppData\Local\npm-cache\_logs\2025-12-20T17_20_07_818Z-eresolve-report.txt
+npm verbose cwd C:\Users\cocra\Desktop\Web\intex-new-main\intex-new-main
+npm verbose os Windows_NT 10.0.26200
+npm verbose node v24.5.0
+npm verbose npm  v11.5.2
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: C:\Users\cocra\AppData\Local\npm-cache\_logs\2025-12-20T17_20_07_818Z-debug-0.log
