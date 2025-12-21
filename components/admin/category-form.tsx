@@ -133,11 +133,11 @@ export default function CategoryForm({ category }: CategoryFormProps) {
                 name="slug"
                 render={({ field }) => (
                   <FormItem className="mb-4">
-                    <FormLabel>Slug</FormLabel>
+                    <FormLabel>Redirect Link / URL</FormLabel>
                     <FormControl>
-                      <Input placeholder="category-slug" {...field} />
+                      <Input placeholder="/products/category or https://example.com" {...field} />
                     </FormControl>
-                    <FormDescription>Leave empty to auto-generate from title</FormDescription>
+                    <FormDescription>Enter an internal path (e.g., /products) or external URL</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

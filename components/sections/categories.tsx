@@ -27,11 +27,12 @@ interface CategoryCardProps {
 }
 
 function CategoryCard({ category }: CategoryCardProps) {
-  const slug = category.slug || (category.title ? category.title.toLowerCase().replace(/\s+/g, "-") : "")
+  const href = category.slug || "#"
+  const isExternal = href.startsWith("http")
 
   return (
     <div className="relative h-64 group">
-      <Link href={`/category/${slug}`} className="absolute inset-0 rounded-xl z-10">
+      <Link href={href} className="absolute inset-0 rounded-xl z-10" target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
         <span className="sr-only">View {category.title}</span>
       </Link>
       <div className="w-full h-full relative">
