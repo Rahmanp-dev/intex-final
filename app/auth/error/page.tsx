@@ -26,7 +26,7 @@ export default function AuthError() {
           setErrorMessage("You must be signed in to access this page.")
           break
         default:
-          setErrorMessage(`Authentication error: ${error}`)
+          setErrorMessage("An unknown authentication error occurred.")
       }
     }
   }, [searchParams])
