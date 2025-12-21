@@ -27,7 +27,7 @@ export default function CategoryForm({ category }: CategoryFormProps) {
   const { toast } = useToast()
 
   const form = useForm<z.infer<typeof categorySchema>>({
-    resolver: zodResolver(categorySchema),
+    resolver: zodResolver(categorySchema) as any,
     defaultValues: {
       title: category?.title || "",
       slug: category?.slug || "",

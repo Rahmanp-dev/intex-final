@@ -53,8 +53,8 @@ export async function GET() {
     return NextResponse.json(
       {
         success: false,
-        error: error.message,
-        stack: process.env.NODE_ENV === "development" ? error.stack : undefined,
+        error: (error as any).message,
+        stack: process.env.NODE_ENV === "development" ? (error as any).stack : undefined,
       },
       { status: 500 },
     )

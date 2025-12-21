@@ -58,7 +58,7 @@ export async function getHeroSlides(): Promise<HeroSlide[]> {
   return [
     {
       id: "1",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-jODsxMthQKQyVC4LjHPt1NgfLBct61.png",
+      image: "/placeholder.svg?height=600&width=1200",
       title: "RELAXATION STARTS HERE",
       subtitle: "YOUR PERSONAL SPA AWAITS!",
       buttonText: "SHOP SPAS NOW",
@@ -205,7 +205,7 @@ export async function getPromoSection(): Promise<PromoSection> {
     _id: "1",
     title: "WAKE UP TO A WHOLE NEW YOU",
     description: "Dura-Beam® air mattresses with Fiber-Tech® Construction.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4cxew3WgrtCFGjQnpQ3Bj1Wv6iNwmh.png",
+    image: "/placeholder.svg?height=600&width=1200",
     buttonText: "SHOP NOW",
     buttonLink: "/category/air-mattresses",
     backgroundColor: "#00b5c8",

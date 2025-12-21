@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
-import { verifyToken } from "@/lib/auth"
+import { verifyToken } from "@/lib/auth-utils"
 import type { z } from "zod"
 import type { productSchema } from "@/lib/validations/product"
 import type { categorySchema } from "@/lib/validations/category"

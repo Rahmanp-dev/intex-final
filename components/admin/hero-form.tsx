@@ -25,7 +25,7 @@ export default function HeroForm({ hero }: HeroFormProps) {
   const { toast } = useToast()
 
   const form = useForm<z.infer<typeof heroSchema>>({
-    resolver: zodResolver(heroSchema),
+    resolver: zodResolver(heroSchema) as any,
     defaultValues: {
       title: hero?.title || "",
       description: hero?.description || "",

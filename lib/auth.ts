@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
 
         const auth = await authenticateUser(credentials.email, credentials.password)
 
-        if (!auth.success) {
+        if (!auth.success || !auth.user) {
           throw new Error(auth.error || "Authentication failed")
         }
 

@@ -29,7 +29,7 @@ export default function ProductForm({ product, categories = [] }: ProductFormPro
   const { toast } = useToast()
 
   const form = useForm<z.infer<typeof productSchema>>({
-    resolver: zodResolver(productSchema),
+    resolver: zodResolver(productSchema) as any,
     defaultValues: {
       title: product?.title || "",
       description: product?.description || "",

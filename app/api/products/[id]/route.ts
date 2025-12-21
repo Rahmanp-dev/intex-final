@@ -4,10 +4,11 @@ import { connectToDatabase } from "@/lib/mongodb"
 import { productSchema } from "@/lib/validations/product"
 import { Product } from "@/lib/models"
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   try {
     await connectToDatabase()
-    const product = await Product.findById(params.id)
+    const product = await Product.findById(id)
 
     if (!product) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 })
@@ -20,7 +21,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   try {
     // Check authentication using JWT
     const auth = getAuthFromRequest(request)
@@ -36,7 +38,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     await connectToDatabase()
 
     // Update product
-    const product = await Product.findByIdAndUpdate(params.id, validatedData, { new: true })
+    const product = await Product.findByIdAndUpdate(id, validatedData, { new: true })
 
     if (!product) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 })
@@ -54,7 +56,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   try {
     // Check authentication using JWT
     const auth = getAuthFromRequest(request)
@@ -65,7 +68,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     await connectToDatabase()
 
     // Delete product
-    const product = await Product.findByIdAndDelete(params.id)
+    const product = await Product.findByIdAndDelete(id)
 
     if (!product) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 })

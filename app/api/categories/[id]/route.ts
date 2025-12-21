@@ -4,10 +4,11 @@ import { connectToDatabase } from "@/lib/mongodb"
 import { categorySchema } from "@/lib/validations/category"
 import { Category } from "@/lib/models"
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   try {
     await connectToDatabase()
-    const category = await Category.findById(params.id)
+    const category = await Category.findById(id)
 
     if (!category) {
       return NextResponse.json({ error: "Category not found" }, { status: 404 })
@@ -20,7 +21,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   try {
     // Check authentication using JWT
     const auth = getAuthFromRequest(request)
@@ -36,7 +38,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     await connectToDatabase()
 
     // Update category
-    const category = await Category.findByIdAndUpdate(params.id, validatedData, { new: true })
+    const category = await Category.findByIdAndUpdate(id, validatedData, { new: true })
 
     if (!category) {
       return NextResponse.json({ error: "Category not found" }, { status: 404 })
@@ -54,7 +56,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   try {
     // Check authentication using JWT
     const auth = getAuthFromRequest(request)
@@ -65,7 +68,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     await connectToDatabase()
 
     // Delete category
-    const category = await Category.findByIdAndDelete(params.id)
+    const category = await Category.findByIdAndDelete(id)
 
     if (!category) {
       return NextResponse.json({ error: "Category not found" }, { status: 404 })

@@ -28,7 +28,7 @@ export async function GET() {
     return NextResponse.json(
       {
         error: "Failed to seed database",
-        details: error.message,
+        details: (error as any).message,
       },
       { status: 500 },
     )

@@ -45,11 +45,17 @@ export default function ImageUploader({
     setError(null)
 
     try {
+      // Get auth token
+      const cookies = document.cookie.split(";")
+      const authCookie = cookies.find((cookie) => cookie.trim().startsWith("auth-token="))
+      const token = authCookie ? authCookie.split("=")[1] : null
+
       // Get presigned URL
       const presignedResponse = await fetch("/api/upload/presigned", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           fileName: file.name,

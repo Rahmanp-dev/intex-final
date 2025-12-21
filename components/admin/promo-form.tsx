@@ -25,7 +25,7 @@ export default function PromoForm({ promo }: PromoFormProps) {
   const { toast } = useToast()
 
   const form = useForm<z.infer<typeof promoSchema>>({
-    resolver: zodResolver(promoSchema),
+    resolver: zodResolver(promoSchema) as any,
     defaultValues: {
       title: promo?.title || "",
       description: promo?.description || "",
@@ -34,7 +34,7 @@ export default function PromoForm({ promo }: PromoFormProps) {
       image: promo?.image || "",
       backgroundColor: promo?.backgroundColor || "#00b5c8",
       backgroundOpacity: promo?.backgroundOpacity || 0.7,
-      position: promo?.position || "right",
+      position: (promo?.position as any) || "right",
       isActive: promo?.isActive !== false,
     },
   })

@@ -3,6 +3,7 @@ import { getAuthFromRequest, isAdmin } from "@/lib/auth-utils"
 import { connectToDatabase } from "@/lib/mongodb"
 import { productSchema } from "@/lib/validations/product"
 import { Product } from "@/lib/models"
+import { ZodError } from "zod"
 
 export async function GET(request: Request) {
   try {
@@ -119,8 +120,8 @@ export async function POST(request: Request) {
       return NextResponse.json(product)
     } catch (validationError) {
       console.error("Products POST: Validation error:", validationError)
-      if (validationError.name === "ZodError") {
-        return NextResponse.json({ error: "Validation error", details: validationError.errors }, { status: 400 })
+      if (validationError instanceof ZodError) {
+        return NextResponse.json({ error: "Validation error", details: (validationError as any).errors }, { status: 400 })
       }
       throw validationError
     }

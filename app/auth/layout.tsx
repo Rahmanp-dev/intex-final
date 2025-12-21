@@ -13,7 +13,7 @@ export default async function AuthLayout({
 
   if (session) {
     // If user is admin, redirect to admin dashboard
-    if (session.user.role === "admin") {
+    if (session.user?.role === "admin") {
       redirect("/admin")
     }
     // Otherwise redirect to home page
