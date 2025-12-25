@@ -43,7 +43,7 @@ function CategoryCard({ category }: CategoryCardProps) {
           className="object-cover rounded-xl shadow-lg"
         />
         <div className="absolute inset-0 bg-black bg-opacity-20 rounded-xl"></div>
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-500 to-transparent text-white text-lg font-semibold p-3 rounded-xl">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#00b5c8] to-transparent text-white text-lg font-semibold p-3 rounded-xl text-center">
           <h3 className="text-white font-medium text-xl">{category.title}</h3>
           {category.description && <p className="text-sm text-gray-200 mt-1">{category.description}</p>}
         </div>

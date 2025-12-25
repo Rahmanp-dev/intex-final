@@ -3,11 +3,26 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner"
 import crypto from "crypto"
 import path from "path"
 
+const requiredEnvVars = [
+  "AWS_REGION",
+  "AWS_ACCESS_KEY_ID",
+  "AWS_SECRET_ACCESS_KEY",
+  "AWS_S3_BUCKET_NAME",
+]
+
+const missingVars = requiredEnvVars.filter((varName) => !process.env[varName])
+
+if (missingVars.length > 0) {
+  console.error(`Missing required environment variables for S3: ${missingVars.join(", ")}`)
+  // We don't throw here to avoid crashing the build if these are missing during build time (though they shouldn't be needed for build)
+  // But the S3Client will fail if used.
+}
+
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION!,
+  region: process.env.AWS_REGION || "us-east-1", // Fallback to avoid crash, but will fail auth if missing
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || "",
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || "",
   },
 })
 
