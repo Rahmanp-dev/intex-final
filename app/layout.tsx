@@ -8,7 +8,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Intex Recreation Corp | The Wet Set",
+  title: "INTEX: The leader in Above Ground Swimming Pools, Airbeds and Spas.",
   description: "The world leader in Above Ground Swimming Pools, Airbeds and Spas.",
 }
 
