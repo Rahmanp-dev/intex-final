@@ -12,7 +12,7 @@ export default function Hero({ data }: HeroProps) {
   }
 
   return (
-    <section className="relative w-full h-[500px] overflow-hidden">
+    <section className="relative w-full h-[500px] md:h-[757px] overflow-hidden">
       <div className="relative w-full h-full">
         <Image
           src={data.image || "/placeholder.svg?height=500&width=1200"}

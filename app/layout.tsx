@@ -8,8 +8,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "E-commerce Store",
-  description: "Dynamic e-commerce store with admin panel",
+  title: "Intex Recreation Corp | The Wet Set",
+  description: "The world leader in Above Ground Swimming Pools, Airbeds and Spas.",
 }
 
 export default function RootLayout({

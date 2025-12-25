@@ -7,17 +7,14 @@ export async function POST(request: NextRequest) {
   try {
     // Verify authentication
     const authHeader = request.headers.get("Authorization")
-    console.log("Upload API: Auth Header:", authHeader ? `${authHeader.substring(0, 20)}...` : "Missing")
 
     const auth = getAuthFromRequest(request)
-    console.log("Upload API: Auth Result:", auth ? "Success" : "Failed")
 
     if (!auth) {
       return NextResponse.json({ error: "Unauthorized - Invalid or missing token" }, { status: 401 })
     }
 
     if (!isAdmin(auth)) {
-      console.log("Upload API: Admin check failed. Role:", auth.role)
       return NextResponse.json({ error: "Forbidden - Admin access required" }, { status: 403 })
     }
 

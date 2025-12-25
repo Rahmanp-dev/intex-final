@@ -26,9 +26,9 @@ export default async function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="container flex items-center justify-between px-4 py-3 mx-auto">
+      <div className="container max-w-7xl flex items-center justify-between px-8 py-4 mx-auto">
         <Link href="/" className="flex-shrink-0">
-          <Image src="/images/logo.png" alt="Logo" width={150} height={50} className="h-10 w-auto" />
+          <Image src="/images/logo.png" alt="Logo" width={190} height={60} className="h-[54px] w-auto" />
         </Link>
 
         <div className="flex items-center space-x-4">
