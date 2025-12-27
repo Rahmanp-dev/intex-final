@@ -50,39 +50,25 @@ export default function ImageUploader({
       const authCookie = cookies.find((cookie) => cookie.trim().startsWith("auth-token="))
       const token = authCookie ? authCookie.split("=")[1] : null
 
-      // Get presigned URL
-      const presignedResponse = await fetch("/api/upload/presigned", {
+      // Upload directly to API route (server-side upload)
+      const formData = new FormData()
+      formData.append("file", file)
+      formData.append("directory", "products")
+
+      const uploadResponse = await fetch("/api/upload", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          fileName: file.name,
-          fileType: file.type,
-          directory: "products", // Can be customized based on usage
-        }),
-      })
-
-      if (!presignedResponse.ok) {
-        const errorData = await presignedResponse.json().catch(() => ({}))
-        throw new Error(errorData.error || `Upload failed with status: ${presignedResponse.status}`)
-      }
-
-      const { url, fileUrl } = await presignedResponse.json()
-
-      // Upload to S3 using presigned URL
-      const uploadResponse = await fetch(url, {
-        method: "PUT",
-        body: file,
-        headers: {
-          "Content-Type": file.type,
-        },
+        body: formData,
       })
 
       if (!uploadResponse.ok) {
-        throw new Error("Failed to upload file")
+        const errorData = await uploadResponse.json().catch(() => ({}))
+        throw new Error(errorData.error || `Upload failed with status: ${uploadResponse.status}`)
       }
+
+      const { fileUrl } = await uploadResponse.json()
 
       setImageUrl(fileUrl)
       onImageUpload(fileUrl)
