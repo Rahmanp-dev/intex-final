@@ -29,8 +29,20 @@ export function DeleteSlideButton({ id }: DeleteSlideButtonProps) {
     const handleDelete = async () => {
         setIsDeleting(true)
         try {
+            // Get JWT token from cookie
+            const cookies = document.cookie.split(";")
+            const authCookie = cookies.find((cookie) => cookie.trim().startsWith("auth-token="))
+            const token = authCookie ? authCookie.split("=")[1] : null
+
+            if (!token) {
+                throw new Error("No authentication token found")
+            }
+
             const response = await fetch(`/api/hero/${id}`, {
                 method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             })
 
             if (!response.ok) {

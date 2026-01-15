@@ -13,11 +13,11 @@ export default function PromoSection({ data }: PromoSectionProps) {
   }
 
   return (
-    <section className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
+    <section className="relative w-full h-[375px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src={data.image || "/placeholder.svg?height=500&width=1200"}
+          src={data.image || "/placeholder.svg?height=375&width=1920"}
           alt={data.title}
           fill
           className="object-cover"
@@ -26,7 +26,7 @@ export default function PromoSection({ data }: PromoSectionProps) {
       </div>
 
       {/* Content Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-left from-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/20 to-transparent" />
       <div className="relative h-full flex items-center justify-end">
         <div className="max-w-lg mr-8 md:mr-16 lg:mr-24 text-right">
           <h2 className="text-white text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight">

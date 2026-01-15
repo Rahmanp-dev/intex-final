@@ -31,6 +31,19 @@ export async function getHero(): Promise<HeroData[]> {
     }
 }
 
+// Get hero slide by ID
+export async function getHeroById(id: string): Promise<HeroData | null> {
+    try {
+        await connectToDatabase()
+        const hero = await Hero.findById(id)
+        if (!hero) return null
+        return JSON.parse(JSON.stringify(hero))
+    } catch (error) {
+        console.error(`Error fetching hero slide ${id}:`, error)
+        return null
+    }
+}
+
 // Get categories
 export async function getCategories(): Promise<CategoryData[]> {
     try {

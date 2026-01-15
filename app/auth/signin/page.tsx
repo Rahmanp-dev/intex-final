@@ -57,35 +57,7 @@ export default function AdminLogin() {
     }
   }
 
-  const testConnection = async () => {
-    try {
-      const response = await fetch("/api/test-auth")
-      const data = await response.json()
 
-      if (data.success) {
-        alert("Database connection and user verification successful!")
-      } else {
-        alert(`Test failed: ${data.error}`)
-      }
-    } catch (error) {
-      alert(`Test failed: ${error instanceof Error ? error.message : "Unknown error"}`)
-    }
-  }
-
-  const seedDatabase = async () => {
-    try {
-      const response = await fetch("/api/seed")
-      const data = await response.json()
-
-      if (data.success) {
-        alert("Database seeded successfully!")
-      } else {
-        alert(`Seeding failed: ${data.error}`)
-      }
-    } catch (error) {
-      alert(`Seeding failed: ${error instanceof Error ? error.message : "Unknown error"}`)
-    }
-  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -105,14 +77,7 @@ export default function AdminLogin() {
             </Alert>
           )}
 
-          <div className="mb-4 space-y-2">
-            <Button onClick={seedDatabase} variant="outline" className="w-full" size="sm">
-              Seed Database
-            </Button>
-            <Button onClick={testConnection} variant="outline" className="w-full" size="sm">
-              Test Connection
-            </Button>
-          </div>
+
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
