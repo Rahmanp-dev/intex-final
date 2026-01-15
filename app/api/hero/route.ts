@@ -10,11 +10,11 @@ export async function GET() {
     await connectToDatabase()
     console.log("Hero GET: Database connected")
 
-    const hero = await Hero.findOne().sort({ updatedAt: -1 }).limit(1)
-    console.log("Hero GET: Found hero data:", hero ? "Yes" : "No")
+    const heroes = await Hero.find().sort({ order: 1, createdAt: -1 })
+    console.log("Hero GET: Found heroes:", heroes.length)
 
-    // Return default data if no hero found
-    if (!hero) {
+    // Return default data if no hero found (as an array)
+    if (!heroes || heroes.length === 0) {
       const defaultHero = {
         title: "RELAXATION STARTS HERE",
         description: "YOUR PERSONAL SPA AWAITS!",
@@ -23,10 +23,10 @@ export async function GET() {
         image: "",
       }
       console.log("Hero GET: Returning default data")
-      return NextResponse.json(defaultHero)
+      return NextResponse.json([defaultHero])
     }
 
-    return NextResponse.json(hero)
+    return NextResponse.json(heroes)
   } catch (error) {
     console.error("Hero GET error:", error)
 
@@ -39,7 +39,7 @@ export async function GET() {
       image: "",
     }
 
-    return NextResponse.json(defaultHero)
+    return NextResponse.json([defaultHero])
   }
 }
 
@@ -64,14 +64,10 @@ export async function POST(request: Request) {
     await connectToDatabase()
     console.log("Hero POST: Database connected")
 
-    // Update or create hero section
-    const hero = await Hero.findOneAndUpdate(
-      {}, // Find first document
-      validatedData,
-      { upsert: true, new: true },
-    )
+    // Create new hero section (slide)
+    const hero = await Hero.create(validatedData)
 
-    console.log("Hero POST: Hero updated/created")
+    console.log("Hero POST: Hero created")
     return NextResponse.json(hero)
   } catch (error: any) {
     console.error("Hero POST error:", error)
@@ -80,6 +76,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Validation error", details: error.errors }, { status: 400 })
     }
 
-    return NextResponse.json({ error: "Failed to update hero data" }, { status: 500 })
+    return NextResponse.json({ error: "Failed to create hero data" }, { status: 500 })
   }
 }

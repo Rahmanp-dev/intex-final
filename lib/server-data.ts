@@ -3,31 +3,31 @@ import { Hero, Category, Product, Promo } from "@/lib/models"
 import type { HeroData, CategoryData, ProductData, PromoData, StatsData } from "@/lib/types"
 
 // Get hero section data
-export async function getHero(): Promise<HeroData> {
+export async function getHero(): Promise<HeroData[]> {
     try {
         await connectToDatabase()
-        const hero = await Hero.findOne().sort({ updatedAt: -1 })
+        const heroes = await Hero.find().sort({ order: 1, createdAt: -1 })
 
-        if (!hero) {
-            return {
+        if (!heroes || heroes.length === 0) {
+            return [{
                 title: "RELAXATION STARTS HERE",
                 description: "YOUR PERSONAL SPA AWAITS!",
                 buttonText: "SHOP SPAS NOW",
                 buttonLink: "/category/spas",
-                image: "/placeholder.svg?height=600&width=1200",
-            }
+                image: "/placeholder.svg?height=757&width=1920",
+            }]
         }
 
-        return JSON.parse(JSON.stringify(hero))
+        return JSON.parse(JSON.stringify(heroes))
     } catch (error) {
         console.error("Error fetching hero data:", error)
-        return {
+        return [{
             title: "RELAXATION STARTS HERE",
             description: "YOUR PERSONAL SPA AWAITS!",
             buttonText: "SHOP SPAS NOW",
             buttonLink: "/category/spas",
-            image: "/placeholder.svg?height=600&width=1200",
-        }
+            image: "/placeholder.svg?height=757&width=1920",
+        }]
     }
 }
 

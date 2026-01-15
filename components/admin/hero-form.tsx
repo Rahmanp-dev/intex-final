@@ -55,8 +55,12 @@ export default function HeroForm({ hero }: HeroFormProps) {
         throw new Error("No authentication token found")
       }
 
-      const response = await fetch("/api/hero", {
-        method: "POST",
+      const isEditing = !!hero?._id
+      const url = isEditing ? `/api/hero/${hero._id}` : "/api/hero"
+      const method = isEditing ? "PUT" : "POST"
+
+      const response = await fetch(url, {
+        method: method,
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -66,23 +70,24 @@ export default function HeroForm({ hero }: HeroFormProps) {
 
       if (!response.ok) {
         const errorData = await response.json()
-        throw new Error(errorData.error || "Failed to update hero section")
+        throw new Error(errorData.error || "Failed to save hero section")
       }
 
       const result = await response.json()
-      console.log("Hero section updated successfully:", result)
+      console.log("Hero section saved successfully:", result)
 
       toast({
-        title: "Hero section updated",
-        description: "The hero section has been successfully updated.",
+        title: isEditing ? "Slide updated" : "Slide created",
+        description: isEditing ? "The hero slide has been updated." : "New hero slide has been created.",
       })
 
+      router.push("/admin/hero")
       router.refresh()
     } catch (error) {
-      console.error("Error updating hero section:", error)
+      console.error("Error saving hero section:", error)
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Failed to update hero section. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to save hero section. Please try again.",
         variant: "destructive",
       })
     } finally {
