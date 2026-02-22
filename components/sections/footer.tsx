@@ -55,12 +55,10 @@ export default function Footer() {
               <li><a href="https://shopezy.qa" target="_blank" className="hover:text-[#5998A6]">Claim Status</a></li>
               <li><Link href="/warranty" className="hover:text-[#5998A6]">Warranty Policy</Link></li>
               <li><Link href="/return-policy" className="hover:text-[#5998A6]">Return Policy</Link></li>
-              <li>
-                <div className="text-[#4a4a4a] hover:text-[#5998A6] cursor-pointer">Payment Options</div>
-              </li>
+              <li><Link href="/payment-options" className="hover:text-[#5998A6]">Payment Options</Link></li>
               <li><Link href="/safety-information" className="hover:text-[#5998A6]">Safety Information</Link></li>
               <li><a href="https://intexcorp.com/faqs/" target="_blank" className="hover:text-[#5998A6]">FAQs</a></li>
-              <li><a href="https://www.intexdevelopment.com/videos/video/category#" target="_blank" className="hover:text-[#5998A6]">Instructional Videos</a></li>
+              <li><a href="https://www.intexdevelopment.com/videos/" target="_blank" className="hover:text-[#5998A6]">Instructional Videos</a></li>
             </ul>
           </div>
 
@@ -94,11 +92,11 @@ export default function Footer() {
         <div className="max-w-[1200px] mx-auto px-[15px] flex flex-col md:flex-row justify-between items-center gap-[15px]">
           <p className="opacity-90">© {new Date().getFullYear()} Intex Qatar. All rights reserved.</p>
           <div className="flex items-center space-x-[5px] opacity-90">
-            <Link href="#" className="hover:underline">Terms of Use</Link>
+            <Link href="/terms-of-use" className="hover:underline">Terms of Use</Link>
             <span>|</span>
-            <Link href="#" className="hover:underline">Privacy Policy</Link>
+            <Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link>
             <span>|</span>
-            <Link href="#" className="hover:underline">Accessibility Statement</Link>
+            <Link href="/accessibility-statement" className="hover:underline">Accessibility Statement</Link>
           </div>
         </div>
       </div>

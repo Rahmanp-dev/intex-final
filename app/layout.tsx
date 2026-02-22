@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "INTEX: The leader in Above Ground Swimming Pools, Airbeds and Spas.",
   description: "The world leader in Above Ground Swimming Pools, Airbeds and Spas.",
+  icons: {
+    icon: '/icon.jpg',
+  },
 }
 
 export default function RootLayout({
