@@ -19,6 +19,7 @@ const HeroSchema = new Schema(
     buttonText: { type: String },
     buttonLink: { type: String },
     image: { type: String },
+    mobileImage: { type: String },
   },
   { timestamps: true },
 )
@@ -61,6 +62,7 @@ const PromoSchema = new Schema(
     title: { type: String, required: true },
     description: { type: String },
     image: { type: String },
+    mobileImage: { type: String },
     buttonText: { type: String },
     buttonLink: { type: String },
     backgroundColor: { type: String, default: "#00b5c8" },

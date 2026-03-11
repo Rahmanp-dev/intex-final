@@ -4,6 +4,7 @@ export const promoSchema = z.object({
   title: z.string().min(1, "Title is required"),
   description: z.string().optional(),
   image: z.string().min(1, "Image is required"),
+  mobileImage: z.string().optional(),
   buttonText: z.string().optional(),
   buttonLink: z.string().optional(),
   backgroundColor: z.string().optional(),

@@ -6,4 +6,5 @@ export const heroSchema = z.object({
   buttonText: z.string().optional(),
   buttonLink: z.string().optional(),
   image: z.string().min(1, "Image is required"),
+  mobileImage: z.string().optional(),
 })

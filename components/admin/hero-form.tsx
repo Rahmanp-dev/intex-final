@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import type { z } from "zod"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import { Loader2 } from "lucide-react"
@@ -32,6 +32,7 @@ export default function HeroForm({ hero }: HeroFormProps) {
       buttonText: hero?.buttonText || "",
       buttonLink: hero?.buttonLink || "",
       image: hero?.image || "",
+      mobileImage: hero?.mobileImage || "",
     },
   })
 
@@ -39,8 +40,11 @@ export default function HeroForm({ hero }: HeroFormProps) {
     form.setValue("image", imageUrl)
   }
 
+  const handleMobileImageUpload = (imageUrl: string) => {
+    form.setValue("mobileImage", imageUrl)
+  }
+
   const getAuthToken = () => {
-    // Get JWT token from cookie
     const cookies = document.cookie.split(";")
     const authCookie = cookies.find((cookie) => cookie.trim().startsWith("auth-token="))
     return authCookie ? authCookie.split("=")[1] : null
@@ -161,24 +165,54 @@ export default function HeroForm({ hero }: HeroFormProps) {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardContent className="pt-6">
-              <FormField
-                control={form.control}
-                name="image"
-                render={({ field }) => (
-                  <FormItem>
-                    <ImageUploader
-                      onImageUpload={handleImageUpload}
-                      currentImage={field.value}
-                      label="Background Image"
-                    />
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </CardContent>
-          </Card>
+          <div className="space-y-6">
+            {/* Desktop Image */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium">Desktop Image (1920×757)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <FormField
+                  control={form.control}
+                  name="image"
+                  render={({ field }) => (
+                    <FormItem>
+                      <ImageUploader
+                        onImageUpload={handleImageUpload}
+                        currentImage={field.value}
+                        label="Desktop Background Image"
+                      />
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+            </Card>
+
+            {/* Mobile Image */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium">Mobile Image (428×642)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <FormField
+                  control={form.control}
+                  name="mobileImage"
+                  render={({ field }) => (
+                    <FormItem>
+                      <ImageUploader
+                        onImageUpload={handleMobileImageUpload}
+                        currentImage={field.value || ""}
+                        label="Mobile Background Image (428×642)"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Optional. If not provided, the desktop image will be used on mobile.</p>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         <div className="flex justify-end">

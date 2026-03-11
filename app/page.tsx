@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import { Suspense } from "react"
 import Hero from "@/components/sections/hero"
 import Categories from "@/components/sections/categories"

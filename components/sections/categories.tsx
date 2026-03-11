@@ -12,11 +12,13 @@ export default function Categories({ data }: CategoriesProps) {
   }
 
   return (
-    <section className="max-w-6xl mx-auto my-10 px-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {data.map((category) => (
-          <CategoryCard key={category._id} category={category} />
-        ))}
+    <section className="max-w-[1200px] mx-auto my-6 sm:my-8 md:my-10 px-3 sm:px-4">
+      <div className="bg-white rounded-md p-3 sm:p-4 md:p-5 shadow-sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-[8px] md:gap-[10px]">
+          {data.map((category) => (
+            <CategoryCard key={category._id} category={category} />
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -31,23 +33,45 @@ function CategoryCard({ category }: CategoryCardProps) {
   const isExternal = href.startsWith("http")
 
   return (
-    <div className="relative h-64 group">
-      <Link href={href} className="absolute inset-0 rounded-xl z-10" target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
-        <span className="sr-only">View {category.title}</span>
-      </Link>
-      <div className="w-full h-full relative">
+    <Link
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      className="block overflow-hidden rounded relative"
+    >
+      {/* Image fills entire card */}
+      <div className="relative w-full" style={{ paddingBottom: "70%" }}>
         <Image
-          src={category.image || "/placeholder.svg?height=263&width=350"}
+          src={category.image || "/placeholder.svg?height=220&width=400"}
           alt={category.title || "Category"}
           fill
-          className="object-cover rounded-xl shadow-lg"
+          className="object-cover"
+          sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-20 rounded-xl"></div>
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#00b5c8] to-transparent text-white text-lg font-semibold p-3 rounded-xl text-center">
-          <h3 className="text-white font-medium text-xl">{category.title}</h3>
-          {category.description && <p className="text-sm text-gray-200 mt-1">{category.description}</p>}
+        {/* Exact intexcorp.com gradient overlay: blue fading up from bottom */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(0deg, rgb(42, 172, 209) 0px, rgba(11, 204, 244, 0) 46%)",
+          }}
+        />
+        {/* Title — exact: PT Sans 21px/700/white/centered, positioned at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 text-center pb-3 sm:pb-4 px-2">
+          <h3
+            style={{
+              fontFamily: "'PT Sans', sans-serif",
+              fontWeight: 700,
+              color: "#fff",
+              margin: 0,
+              lineHeight: "1.3",
+            }}
+            className="text-[14px] sm:text-[17px] md:text-[21px]"
+          >
+            {category.title}
+          </h3>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

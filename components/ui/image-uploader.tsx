@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useId } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Image from "next/image"
@@ -21,6 +21,8 @@ export default function ImageUploader({
   label = "Upload Image",
   className = "",
 }: ImageUploaderProps) {
+  const uniqueId = useId()
+  const inputId = `image-upload-${uniqueId}`
   const [imageUrl, setImageUrl] = useState<string | null>(currentImage || null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -107,7 +109,7 @@ export default function ImageUploader({
       {/* Upload Input */}
       <div className="flex items-center justify-center">
         <Label
-          htmlFor="image-upload"
+          htmlFor={inputId}
           className="cursor-pointer bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-md flex items-center transition-colors"
         >
           {isLoading ? (
@@ -123,7 +125,7 @@ export default function ImageUploader({
           )}
         </Label>
         <Input
-          id="image-upload"
+          id={inputId}
           type="file"
           accept="image/*"
           className="hidden"

@@ -7,6 +7,7 @@ export interface HeroData {
   buttonText?: string
   buttonLink?: string
   image: string
+  mobileImage?: string
 }
 
 export interface CategoryData {
@@ -42,6 +43,7 @@ export interface PromoData {
   title: string
   description?: string
   image: string
+  mobileImage?: string
   buttonText?: string
   buttonLink?: string
   backgroundColor?: string
