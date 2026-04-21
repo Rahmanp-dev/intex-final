@@ -21,6 +21,8 @@ export async function GET(request: Request) {
       query = { featured: true }
     }
 
+
+
     const products = await Product.find(query).sort({ order: 1 })
     console.log("Products GET: Found products:", products.length)
 
